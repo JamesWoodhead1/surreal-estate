@@ -1,0 +1,20 @@
+.nav-bar {
+  background-color: white;
+  border-bottom: 1px solid rgb(67, 2, 128);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img { height: 50px; }
+
+.navbar-links {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links-item {
+  margin: 0;
+  display: inline-block;
+  padding: 10px;
+}

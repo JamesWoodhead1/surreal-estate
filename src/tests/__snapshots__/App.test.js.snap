@@ -3,15 +3,32 @@
 exports[`App renders as expected 1`] = `
 <DocumentFragment>
   <div
-    class="App"
+    class="surreal-estate"
   >
-    <header
-      class="App-header"
+    <div
+      class="nav-bar"
     >
-      <h2>
-        Surreal Estate
-      </h2>
-    </header>
+      <img
+        alt="surreal estate logo"
+        src="logo.png"
+      />
+      <div
+        class="navbar-links"
+      >
+        <ul>
+          <li
+            class="navbar-links-item"
+          >
+            View Properties
+          </li>
+          <li
+            class="navbar-links-item"
+          >
+            Add a Property
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;
