@@ -13,10 +13,10 @@ const AddProperty = () => {
       bedrooms: "",
       price: "",
       email: "",
-      alert: {
-        message: "",
-        isSuccess: false,
-      },
+    },
+    alert: {
+      message: "",
+      isSuccess: false,
     },
   };
 
@@ -38,9 +38,9 @@ const AddProperty = () => {
 
   return (
     <div className="add-property">
+      <Alert message={alert.message} success={alert.isSuccess} />
       Add a Property
       <form onSubmit={handleAddProperty}>
-        <Alert message={alert.message} success={alert.isSuccess} />
         <label htmlFor="title">
           Title
           <input 
