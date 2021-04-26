@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/PropertyCard.css";
 
 const PropertyCard = (props) => {
-  const { title, type, bedrooms, bathrooms, price, city, email } = props;
+  const { _id, title, type, bedrooms, bathrooms, price, city, email, onSaveProperty, userID } = props;
   return (
     <div className="property-card">
       <div className="property-card-title">{title}</div>
@@ -12,13 +12,13 @@ const PropertyCard = (props) => {
         className="property-card-bedrooms"
         data-testid="property-card-bedrooms"
       >
-        {bedrooms}
+        {bedrooms} bedrooms
       </div>
       <div
         className="property-card-bathrooms"
         data-testid="property-card-bathrooms"
       >
-        {bathrooms}
+        {bathrooms} bathrooms
       </div>
       <div
         className="property-card-price"
@@ -30,6 +30,15 @@ const PropertyCard = (props) => {
       <div className="property-card-email">
         <a href={`contact: ${email}`}>{email}</a>
       </div>
+      {userID && (
+        <a
+          href="#"
+          onClick={() => onSaveProperty(_id)}
+          className="save"
+        >
+            <i className="fas fa-star" />Save
+          </a>
+      )}
     </div>
   );
 };
@@ -42,6 +51,7 @@ PropertyCard.propTypes = {
   price: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  userID: PropTypes.string.isRequired,
 };
 
 export default PropertyCard;

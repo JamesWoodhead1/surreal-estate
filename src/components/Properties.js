@@ -6,7 +6,7 @@ import "../styles/Properties.css";
 import SideBar from "./SideBar";
 import { useLocation } from "react-router-dom";
 
-const Properties = () => {
+const Properties = ({ userId }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: true });
 
@@ -34,13 +34,21 @@ const Properties = () => {
   if (alert.message) {
     return <Alert message={alert.message} success={alert.isSucces} />;
   }
+
+  const handleSaveProperty = (propertyId) => {
+    axios.post("http://localhost:4000/api/v1/Favourite", {
+      propertyListing: propertyId,
+      fbUserId: userId,
+    });
+  };
+
   return (
     <div className="properties-page">
       Properties
       <SideBar />
       <div className="properties">
         {properties.map((property) => (
-          <PropertyCard {...property} />
+          <PropertyCard {...property} onSaveProperty={handleSaveProperty} />
         ))}
       </div>
     </div>
