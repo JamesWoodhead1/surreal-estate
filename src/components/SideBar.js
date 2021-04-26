@@ -22,6 +22,7 @@ const buildQueryString = (operation, valueObj, search) => {
 
 const SideBar = () => {
   const [searchText, setSearchText] = useState("");
+  const [query, setQuery] = useState("");
   const { search } = useLocation();
   const history = useHistory();
   const handleSearch = (event) => {
@@ -74,6 +75,23 @@ const SideBar = () => {
         {" "}
         Liverpool
       </Link>
+      <h3>Filter By Price</h3>
+      <Link to={buildQueryString("sort", { price: 1 }, search)}>
+        {" "}
+        Ascending Price
+      </Link>
+      <Link to={buildQueryString("sort", { price: -1 }, search)}>
+        {" "}
+        Descending Price
+      </Link>
+      <form onSubmit={handleSearch}>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
     </div>
   )
 }
